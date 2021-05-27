@@ -3,11 +3,6 @@ import numpy as np
 from PIL import Image
 
 class CvOverlayImage(object):
-    """
-    [summary]
-      OpenCV形式の画像に指定画像を重ねる
-    """
-
     def __init__(self):
         pass
 
@@ -19,8 +14,6 @@ class CvOverlayImage(object):
             point,
     ):
         """
-        [summary]
-          OpenCV形式の画像に指定画像を重ねる
         Parameters
         ----------
         cv_background_image : [OpenCV Image]
@@ -30,25 +23,26 @@ class CvOverlayImage(object):
         """
         overlay_height, overlay_width = cv_overlay_image.shape[:2]
 
-        # OpenCV形式の画像をPIL形式に変換(α値含む)
-        # 背景画像
+        # OpenCV to PIL
+        # backbround image
         cv_rgb_bg_image = cv2.cvtColor(cv_background_image, cv2.COLOR_BGR2RGB)
         pil_rgb_bg_image = Image.fromarray(cv_rgb_bg_image)
         pil_rgba_bg_image = pil_rgb_bg_image.convert('RGBA')
-        # オーバーレイ画像
+        # overlay image
         cv_rgb_ol_image = cv2.cvtColor(cv_overlay_image, cv2.COLOR_BGRA2RGBA)
         pil_rgb_ol_image = Image.fromarray(cv_rgb_ol_image)
         pil_rgba_ol_image = pil_rgb_ol_image.convert('RGBA')
 
-        # composite()は同サイズ画像同士が必須のため、合成用画像を用意
+        # composite() needs to the same size images
+        # prepare image
         pil_rgba_bg_temp = Image.new('RGBA', pil_rgba_bg_image.size,
                                      (255, 255, 255, 0))
-        # 座標を指定し重ね合わせる
+        # pile images to determine composite
         pil_rgba_bg_temp.paste(pil_rgba_ol_image, point, pil_rgba_ol_image)
         result_image = \
             Image.alpha_composite(pil_rgba_bg_image, pil_rgba_bg_temp)
 
-        # OpenCV形式画像へ変換
+        # Oconvert OpenCV
         cv_bgr_result_image = cv2.cvtColor(
             np.asarray(result_image), cv2.COLOR_RGBA2BGRA)
 
