@@ -58,86 +58,92 @@ def rotate(img, angle):
     return r_img
 
 def go_right(save, pos_x, pos_y):
-    image = CvOverlayImage.overlay(bg, prt, (pos_x, pos_y))
+    image = CvOverlayImage.overlay(bg, prt1, (pos_x, pos_y))
     save_image(save, image)
 
-    image = CvOverlayImage.overlay(bg, rotate(prt, 30), (pos_x+10, pos_y))
+    image = CvOverlayImage.overlay(bg, rotate(prt1, 30), (pos_x+10, pos_y))
     save_image(save, image)
 
-    image = CvOverlayImage.overlay(bg, rotate(prt, 0), (pos_x+20, pos_y))
+    image = CvOverlayImage.overlay(bg, rotate(prt1, 0), (pos_x+20, pos_y))
     save_image(save, image)
 
-    image = CvOverlayImage.overlay(bg, rotate(prt, -30), (pos_x+30, pos_y))
+    image = CvOverlayImage.overlay(bg, rotate(prt1, -30), (pos_x+30, pos_y))
     save_image(save, image)
 
 def go_left(save, pos_x, pos_y):
-    image = CvOverlayImage.overlay(bg, rotate(prt, 180), (pos_x, pos_y))
+    image = CvOverlayImage.overlay(bg, rotate(prt1, 180), (pos_x, pos_y))
     save_image(save, image)
 
-    image = CvOverlayImage.overlay(bg, rotate(prt, 150), (pos_x-10, pos_y))
+    image = CvOverlayImage.overlay(bg, rotate(prt1, 150), (pos_x-10, pos_y))
     save_image(save, image)
 
-    image = CvOverlayImage.overlay(bg, rotate(prt, 180), (pos_x-20, pos_y))
+    image = CvOverlayImage.overlay(bg, rotate(prt1, 180), (pos_x-20, pos_y))
     save_image(save, image)
 
-    image = CvOverlayImage.overlay(bg, rotate(prt, 210), (pos_x-30, pos_y))
+    image = CvOverlayImage.overlay(bg, rotate(prt1, 210), (pos_x-30, pos_y))
     save_image(save, image)
 
 def go_upper(save, pos_x, pos_y):
-    image = CvOverlayImage.overlay(bg, rotate(prt, 90), (pos_x, pos_y))
+    image = CvOverlayImage.overlay(bg, rotate(prt1, 90), (pos_x, pos_y))
     save_image(save, image)
 
-    image = CvOverlayImage.overlay(bg, rotate(prt, 120), (pos_x, pos_y-10))
+    image = CvOverlayImage.overlay(bg, rotate(prt1, 120), (pos_x, pos_y-10))
     save_image(save, image)
 
-    image = CvOverlayImage.overlay(bg, rotate(prt, 90), (pos_x, pos_y-20))
+    image = CvOverlayImage.overlay(bg, rotate(prt1, 90), (pos_x, pos_y-20))
     save_image(save, image)
 
-    image = CvOverlayImage.overlay(bg, rotate(prt, 60), (pos_x, pos_y-30))
+    image = CvOverlayImage.overlay(bg, rotate(prt1, 60), (pos_x, pos_y-30))
     save_image(save, image)
 
 def go_below(save, pos_x, pos_y):
-    image = CvOverlayImage.overlay(bg, rotate(prt, 270), (pos_x, pos_y))
+    image = CvOverlayImage.overlay(bg, rotate(prt1, 270), (pos_x, pos_y))
     save_image(save, image)
 
-    image = CvOverlayImage.overlay(bg, rotate(prt, 240), (pos_x, pos_y+10))
+    image = CvOverlayImage.overlay(bg, rotate(prt1, 240), (pos_x, pos_y+10))
     save_image(save, image)
 
-    image = CvOverlayImage.overlay(bg, rotate(prt, 300), (pos_x, pos_y+20))
+    image = CvOverlayImage.overlay(bg, rotate(prt1, 300), (pos_x, pos_y+20))
     save_image(save, image)
 
-    image = CvOverlayImage.overlay(bg, rotate(prt, 270), (pos_x, pos_y+30))
+    image = CvOverlayImage.overlay(bg, rotate(prt1, 270), (pos_x, pos_y+30))
     save_image(save, image)
 
-def look_around(save, pos_x, pos_y, direction):
-    image = CvOverlayImage.overlay(bg, rotate(prt, direction), (pos_x, pos_y))
+def look_around(pos_x, pos_y, direction):
+    image = CvOverlayImage.overlay(bg, rotate(prt1, direction), (pos_x, pos_y))
     save_image(save, image)
 
-    image = CvOverlayImage.overlay(bg, rotate(prt, direction), (pos_x, pos_y))
+    image = CvOverlayImage.overlay(bg, rotate(prt1, direction), (pos_x, pos_y))
     save_image(save, image)
 
-    image = CvOverlayImage.overlay(bg, rotate(prt, direction - 45), (pos_x, pos_y))
+    image = CvOverlayImage.overlay(bg, rotate(prt1, direction + 45), (pos_x, pos_y))
     save_image(save, image)
 
-    image = CvOverlayImage.overlay(bg, rotate(prt, direction - 90), (pos_x, pos_y))
+    image = CvOverlayImage.overlay(bg, rotate(prt1, direction + 90), (pos_x, pos_y))
     save_image(save, image)
 
-    image = CvOverlayImage.overlay(bg, rotate(prt, direction), (pos_x, pos_y))
+    image = CvOverlayImage.overlay(bg, rotate(prt1, direction), (pos_x, pos_y))
     save_image(save, image)
 
-    image = CvOverlayImage.overlay(bg, rotate(prt, direction + 45), (pos_x, pos_y))
+    image = CvOverlayImage.overlay(bg, rotate(prt1, direction - 45), (pos_x, pos_y))
     save_image(save, image)
 
-    image = CvOverlayImage.overlay(bg, rotate(prt, direction + 90), (pos_x, pos_y))
+    image = CvOverlayImage.overlay(bg, rotate(prt1, direction - 90), (pos_x, pos_y))
     save_image(save, image)
 
-    image = CvOverlayImage.overlay(bg, rotate(prt, direction), (pos_x, pos_y))
+    image = CvOverlayImage.overlay(bg, rotate(prt1, direction), (pos_x, pos_y))
     save_image(save, image)
 
 def stop(pos_x, pos_y, direction, time):
     for i in range(time):
-        image = CvOverlayImage.overlay(bg, rotate(prt, direction), (pos_x, pos_y))
+        image = CvOverlayImage.overlay(bg, rotate(prt1, direction), (pos_x, pos_y))
         save_image(save, image)
+
+def surprise(pos_x, pos_y, direction):
+    image = CvOverlayImage.overlay(bg, rotate(prt1, direction), (pos_x, pos_y))
+    save_image(save, image)
+    image = CvOverlayImage.overlay(bg, rotate(prt2, direction), (pos_x-10, pos_y-10))
+    save_image(save, image)
 
 def save_image(save, image):
 #     cv2.imshow("image", image)
@@ -149,7 +155,8 @@ def save_image(save, image):
 
 if __name__ == '__main__':
     prt = cv2.imread("./imgs/protagonist_openeyes.png", -1) # (375, 454, 4)
-    prt = cv2.resize(prt, (int(prt.shape[1] / 15), int(prt.shape[0] / 15))) # (20, 30, 4)
+    prt1 = cv2.resize(prt, (int(prt.shape[1] / 15), int(prt.shape[0] / 15))) # (20, 30, 4)
+    prt2 = cv2.resize(prt, (int(prt.shape[1] / 10), int(prt.shape[0] / 10))) # (30, 45, 4)
     bg = cv2.imread("./imgs/bg.png") # (366, 603, 3)
 
     mp4 = cv2.VideoWriter_fourcc('m', 'p', '4', 'v')
@@ -163,22 +170,27 @@ if __name__ == '__main__':
     below = 270
     # start
     go_right(save, pos_x, pos_y)
-    look_around(save, pos_x+40, pos_y, right)
-    stop(pos_x+40, pos_y, right, 2)
+    # 1
+    look_around(pos_x+40, pos_y, right)
+    stop(pos_x+40, pos_y, right, 4)
     go_below(save, pos_x+40, pos_y)
     go_right(save, pos_x+40, pos_y+40)
-    look_around(save, pos_x+80, pos_y+40, right)
     stop(pos_x+80, pos_y+40, right, 2)
     go_right(save, pos_x+80, pos_y+40)
+    look_around(pos_x+120, pos_y+40, right)
     go_upper(save, pos_x+120, pos_y+40)
     go_right(save, pos_x+120, pos_y)
     go_right(save, pos_x+160, pos_y)
+    # 2
+    stop(pos_x+200, pos_y, right, 2)
     go_below(save, pos_x+200, pos_y)
     go_below(save, pos_x+200, pos_y+40)
     go_right(save, pos_x+200, pos_y+80)
     go_right(save, pos_x+240, pos_y+80)
     go_below(save, pos_x+280, pos_y+80)
     # aware miss and return
+    # 3
+    stop(pos_x+280, pos_y+120, below, 2)
     go_upper(save, pos_x+280, pos_y+120)
     go_left(save, pos_x+280, pos_y+80)
     go_left(save, pos_x+240, pos_y+80)
@@ -187,68 +199,90 @@ if __name__ == '__main__':
     go_upper(save, pos_x+160, pos_y+40)
     go_left(save, pos_x+160, pos_y+0)
     go_below(save, pos_x+120, pos_y+0)
+    # 4
+    stop(pos_x+120, pos_y+40, below, 2)
+    stop(pos_x+120, pos_y+40, left, 2)
+    look_around(pos_x+120, pos_y+40, left)
     go_left(save, pos_x+120, pos_y+40)
     go_left(save, pos_x+80, pos_y+40)
     go_upper(save, pos_x+40, pos_y+40)
     # first position
+    # 5
     go_upper(save, pos_x+40, pos_y+0)
-    stop(pos_x+40, pos_y-40, upper, 4)
+    stop(pos_x+40, pos_y-40, upper, 2)
+    stop(pos_x+40, pos_y-40, right, 2)
     go_right(save, pos_x+40, pos_y-40)
-    look_around(save, pos_x+80, pos_y-40, upper)
     go_upper(save, pos_x+80, pos_y-40)
     go_right(save, pos_x+80, pos_y-80)
     go_below(save, pos_x+120, pos_y-80)
     go_right(save, pos_x+120, pos_y-40)
     go_right(save, pos_x+160, pos_y-40)
-    stop(pos_x+200, pos_y-40, right, 4)
     # face to enemy
+    # 6
+    stop(pos_x+200, pos_y-40, right, 4)
+    surprise(pos_x+200, pos_y-40, right)
+    surprise(pos_x+200, pos_y-40, right)
     go_left(save, pos_x+200, pos_y-40)
     go_upper(save, pos_x+160, pos_y-40)
     go_upper(save, pos_x+160, pos_y-80)
     go_upper(save, pos_x+160, pos_y-120)
-    look_around(save, pos_x+160, pos_y-160, upper)
-    stop(pos_x+160, pos_y-160, right, 2)
+    # 7
+    stop(pos_x+160, pos_y-160, left, 2)
+    stop(pos_x+160, pos_y-160, below, 1)
     go_right(save, pos_x+160, pos_y-160)
     go_right(save, pos_x+200, pos_y-160)
     go_right(save, pos_x+240, pos_y-160)
     go_below(save, pos_x+280, pos_y-160)
     go_right(save, pos_x+280, pos_y-120)
     go_below(save, pos_x+320, pos_y-120)
-    look_around(save, pos_x+320, pos_y-80, below)
     go_below(save, pos_x+320, pos_y-80)
+    # 8
+    look_around(pos_x+320, pos_y-40, below)
     go_below(save, pos_x+320, pos_y-40)
     go_below(save, pos_x+320, pos_y-0)
+    # 9
+    stop(pos_x+320, pos_y+40, below, 2)
+    stop(pos_x+320, pos_y+40, left, 4)
     go_below(save, pos_x+320, pos_y+40)
     go_below(save, pos_x+320, pos_y+80)
     go_right(save, pos_x+320, pos_y+120)
-    look_around(save, pos_x+360, pos_y+120, right)
-    go_left(save, pos_x+360, pos_y+120)
     # aware miss and return
+    # 10
+    stop(pos_x+360, pos_y+120, right, 2)
+    look_around(pos_x+360, pos_y+120, right)
+    go_left(save, pos_x+360, pos_y+120)
     go_upper(save, pos_x+320, pos_y+120)
     go_upper(save, pos_x+320, pos_y+80)
     go_upper(save, pos_x+320, pos_y+40)
     go_upper(save, pos_x+320, pos_y+0)
     go_right(save, pos_x+320, pos_y-40)
-    look_around(save, pos_x+360, pos_y-40, right)
     go_right(save, pos_x+360, pos_y-40)
+    # 11
+    look_around(pos_x+400, pos_y-40, right)
     go_below(save, pos_x+400, pos_y-40)
     go_below(save, pos_x+400, pos_y-0)
     go_below(save, pos_x+400, pos_y+40)
     go_right(save, pos_x+400, pos_y+80)
+    # 12
+    look_around(pos_x+440, pos_y+80, right)
     go_upper(save, pos_x+440, pos_y+80)
     go_upper(save, pos_x+440, pos_y+40)
     go_upper(save, pos_x+440, pos_y+0)
     go_upper(save, pos_x+440, pos_y-40)
     go_upper(save, pos_x+440, pos_y-80)
     go_upper(save, pos_x+440, pos_y-120)
+    stop(pos_x+440, pos_y-160, right, 2)
     go_right(save, pos_x+440, pos_y-160)
-    stop(pos_x+480, pos_y-160, right, 4)
     go_below(save, pos_x+480, pos_y-160)
     go_below(save, pos_x+480, pos_y-120)
     go_below(save, pos_x+480, pos_y-80)
     go_below(save, pos_x+480, pos_y-40)
     go_right(save, pos_x+480, pos_y-0)
-    look_around(save, pos_x+520, pos_y-0, right)
+    stop(pos_x+520, pos_y-0, right,2)
+    look_around(pos_x+520, pos_y-0, right)
+    surprise(pos_x+520, pos_y-0, right)
+    surprise(pos_x+520, pos_y-0, right)
+    surprise(pos_x+520, pos_y-0, right)
     # goal
 
     cv2.destroyAllWindows()
