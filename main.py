@@ -1,4 +1,5 @@
 import cv2
+import math
 import numpy as np
 from PIL import Image
 
@@ -59,108 +60,148 @@ def rotate(img, angle):
 
 def go_right(save, pos_x, pos_y):
     image = CvOverlayImage.overlay(bg, prt1, (pos_x, pos_y))
-    save_image(save, image)
+    save_image(save, image, pos_x, pos_y)
 
     image = CvOverlayImage.overlay(bg, rotate(prt1, 30), (pos_x+10, pos_y))
-    save_image(save, image)
+    save_image(save, image, pos_x+10, pos_y)
 
     image = CvOverlayImage.overlay(bg, rotate(prt1, 0), (pos_x+20, pos_y))
-    save_image(save, image)
+    save_image(save, image, pos_x+20, pos_y)
 
     image = CvOverlayImage.overlay(bg, rotate(prt1, -30), (pos_x+30, pos_y))
-    save_image(save, image)
+    save_image(save, image, pos_x+30, pos_y)
 
 def go_left(save, pos_x, pos_y):
     image = CvOverlayImage.overlay(bg, rotate(prt1, 180), (pos_x, pos_y))
-    save_image(save, image)
+    save_image(save, image, pos_x, pos_y)
 
     image = CvOverlayImage.overlay(bg, rotate(prt1, 150), (pos_x-10, pos_y))
-    save_image(save, image)
+    save_image(save, image, pos_x-10, pos_y)
 
     image = CvOverlayImage.overlay(bg, rotate(prt1, 180), (pos_x-20, pos_y))
-    save_image(save, image)
+    save_image(save, image, pos_x-20, pos_y)
 
     image = CvOverlayImage.overlay(bg, rotate(prt1, 210), (pos_x-30, pos_y))
-    save_image(save, image)
+    save_image(save, image, pos_x-30, pos_y)
 
 def go_upper(save, pos_x, pos_y):
     image = CvOverlayImage.overlay(bg, rotate(prt1, 90), (pos_x, pos_y))
-    save_image(save, image)
+    save_image(save, image, pos_x, pos_y)
 
     image = CvOverlayImage.overlay(bg, rotate(prt1, 120), (pos_x, pos_y-10))
-    save_image(save, image)
+    save_image(save, image, pos_x, pos_y-10)
 
     image = CvOverlayImage.overlay(bg, rotate(prt1, 90), (pos_x, pos_y-20))
-    save_image(save, image)
+    save_image(save, image, pos_x, pos_y-20)
 
     image = CvOverlayImage.overlay(bg, rotate(prt1, 60), (pos_x, pos_y-30))
-    save_image(save, image)
+    save_image(save, image, pos_x, pos_y-30)
 
 def go_below(save, pos_x, pos_y):
     image = CvOverlayImage.overlay(bg, rotate(prt1, 270), (pos_x, pos_y))
-    save_image(save, image)
+    save_image(save, image, pos_x, pos_y)
 
     image = CvOverlayImage.overlay(bg, rotate(prt1, 240), (pos_x, pos_y+10))
-    save_image(save, image)
+    save_image(save, image, pos_x, pos_y+10)
 
     image = CvOverlayImage.overlay(bg, rotate(prt1, 300), (pos_x, pos_y+20))
-    save_image(save, image)
+    save_image(save, image, pos_x, pos_y+20)
 
     image = CvOverlayImage.overlay(bg, rotate(prt1, 270), (pos_x, pos_y+30))
-    save_image(save, image)
+    save_image(save, image, pos_x, pos_y+30)
+
+def go_back(save, pos_x, pos_y, direction):
+    image = CvOverlayImage.overlay(bg, rotate(prt1, direction), (pos_x, pos_y))
+    save_image(save, image, pos_x, pos_y)
+
+    image = CvOverlayImage.overlay(bg, rotate(prt1, direction-30), (pos_x-5, pos_y))
+    save_image(save, image, pos_x, pos_y+10)
+
+    image = CvOverlayImage.overlay(bg, rotate(prt1, direction), (pos_x-10, pos_y))
+    save_image(save, image, pos_x, pos_y+20)
+
+    image = CvOverlayImage.overlay(bg, rotate(prt1, direction+30), (pos_x-15, pos_y))
+    save_image(save, image, pos_x, pos_y+30)
+
+    image = CvOverlayImage.overlay(bg, rotate(prt1, direction), (pos_x-20, pos_y))
+    save_image(save, image, pos_x, pos_y)
+
+    image = CvOverlayImage.overlay(bg, rotate(prt1, direction-30), (pos_x-25, pos_y))
+    save_image(save, image, pos_x, pos_y+10)
+
+    image = CvOverlayImage.overlay(bg, rotate(prt1, direction), (pos_x-30, pos_y))
+    save_image(save, image, pos_x, pos_y+20)
 
 def look_around(pos_x, pos_y, direction):
     image = CvOverlayImage.overlay(bg, rotate(prt1, direction), (pos_x, pos_y))
-    save_image(save, image)
+    save_image(save, image, pos_x, pos_y)
 
     image = CvOverlayImage.overlay(bg, rotate(prt1, direction), (pos_x, pos_y))
-    save_image(save, image)
+    save_image(save, image, pos_x, pos_y)
 
     image = CvOverlayImage.overlay(bg, rotate(prt1, direction + 45), (pos_x, pos_y))
-    save_image(save, image)
+    save_image(save, image, pos_x, pos_y)
 
     image = CvOverlayImage.overlay(bg, rotate(prt1, direction + 90), (pos_x, pos_y))
-    save_image(save, image)
+    save_image(save, image, pos_x, pos_y)
 
     image = CvOverlayImage.overlay(bg, rotate(prt1, direction), (pos_x, pos_y))
-    save_image(save, image)
+    save_image(save, image, pos_x, pos_y)
 
     image = CvOverlayImage.overlay(bg, rotate(prt1, direction - 45), (pos_x, pos_y))
-    save_image(save, image)
+    save_image(save, image, pos_x, pos_y)
 
     image = CvOverlayImage.overlay(bg, rotate(prt1, direction - 90), (pos_x, pos_y))
-    save_image(save, image)
+    save_image(save, image, pos_x, pos_y)
 
     image = CvOverlayImage.overlay(bg, rotate(prt1, direction), (pos_x, pos_y))
-    save_image(save, image)
+    save_image(save, image, pos_x, pos_y)
 
 def stop(pos_x, pos_y, direction, time):
     for i in range(time):
         image = CvOverlayImage.overlay(bg, rotate(prt1, direction), (pos_x, pos_y))
-        save_image(save, image)
+        save_image(save, image, pos_x, pos_y)
 
 def surprise(pos_x, pos_y, direction):
     image = CvOverlayImage.overlay(bg, rotate(prt1, direction), (pos_x, pos_y))
-    save_image(save, image)
+    save_image(save, image, pos_x, pos_y)
     image = CvOverlayImage.overlay(bg, rotate(prt2, direction), (pos_x-10, pos_y-10))
-    save_image(save, image)
+    save_image(save, image, pos_x-10, pos_y-10)
 
-def save_image(save, image):
+def save_image(save, image, pos_x, pos_y):
 #     cv2.imshow("image", image)
 #     cv2.waitKey(0)
+    diff_x = pos_x - 260 + 1
+    diff_y = pos_y - 128
+    if diff_y < 0 and diff_x >= 0:
+        direction = - math.degrees(math.atan(diff_y / diff_x))
+    elif diff_y < 0 and diff_x < 0:
+        direction = 180 - math.degrees(math.atan(diff_y / diff_x))
+    elif diff_y > 0 and diff_x < 0:
+        direction = 180 - math.degrees(math.atan(diff_y / diff_x))
+    elif diff_y > 0 and diff_x >= 0:
+        direction = - math.degrees(math.atan(diff_y / diff_x))
+    elif diff_y == 0 and pos_x > 260:
+        direction = 0
+    elif diff_y == 0 and pos_x < 260:
+        direction = 180
+    
+    image = CvOverlayImage.overlay(image, rotate(enemy, direction), (260, 128))
     cv2.imwrite("image.png", image)
     image = cv2.imread("image.png")
     save.write(image)
 
 
 if __name__ == '__main__':
-    prt = cv2.imread("./imgs/protagonist_openeyes.png", -1) # (375, 454, 4)
+    prt = cv2.imread("./imgs/drop.png", -1) # (375, 454, 4)
     prt1 = cv2.resize(prt, (int(prt.shape[1] / 15), int(prt.shape[0] / 15))) # (20, 30, 4)
     prt2 = cv2.resize(prt, (int(prt.shape[1] / 10), int(prt.shape[0] / 10))) # (30, 45, 4)
+    enemy = cv2.imread("./imgs/enemy.png", -1)
+    enemy = cv2.resize(enemy, (int(enemy.shape[1] / 15), int(enemy.shape[0] / 15))) # (20, 30, 4)
     bg = cv2.imread("./imgs/bg.png") # (366, 603, 3)
 
     mp4 = cv2.VideoWriter_fourcc('m', 'p', '4', 'v')
-    save = cv2.VideoWriter("./video.mp4", mp4, 8.0, (bg.shape[1], bg.shape[0]))
+    save = cv2.VideoWriter("./main.mp4", mp4, 7.0, (bg.shape[1], bg.shape[0]))
 
     pos_x  = 20
     pos_y  = 168
@@ -222,7 +263,8 @@ if __name__ == '__main__':
     stop(pos_x+200, pos_y-40, right, 4)
     surprise(pos_x+200, pos_y-40, right)
     surprise(pos_x+200, pos_y-40, right)
-    go_left(save, pos_x+200, pos_y-40)
+    go_back(save, pos_x+200, pos_y-40, right)
+#     go_left(save, pos_x+200, pos_y-40)
     go_upper(save, pos_x+160, pos_y-40)
     go_upper(save, pos_x+160, pos_y-80)
     go_upper(save, pos_x+160, pos_y-120)
@@ -238,6 +280,8 @@ if __name__ == '__main__':
     go_below(save, pos_x+320, pos_y-80)
     # 8
     look_around(pos_x+320, pos_y-40, below)
+    surprise(pos_x+320, pos_y-40, left)
+    surprise(pos_x+320, pos_y-40, left)
     go_below(save, pos_x+320, pos_y-40)
     go_below(save, pos_x+320, pos_y-0)
     # 9
